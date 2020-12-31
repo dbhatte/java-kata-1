@@ -1,5 +1,6 @@
 package org.echocat.kata.java.part1.loader;
 
+import org.echocat.kata.java.part1.configuration.FileConfiguration;
 import org.echocat.kata.java.part1.loader.mapper.AuthorMapper;
 import org.echocat.kata.java.part1.loader.mapper.BookMapper;
 import org.echocat.kata.java.part1.loader.mapper.MagazineMapper;

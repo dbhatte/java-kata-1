@@ -13,7 +13,7 @@ import java.util.Map;
 @Component
 public class MagazineMapper {
 
-    private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
+    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
 
     @Autowired
     private AuthorMapper authorMapper;

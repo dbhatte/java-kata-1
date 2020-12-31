@@ -1,4 +1,4 @@
-package org.echocat.kata.java.part1.loader;
+package org.echocat.kata.java.part1.configuration;
 
 import org.springframework.stereotype.Component;
 
@@ -12,15 +12,15 @@ public class FileConfiguration {
     public static final String CLASSPATH_ORG_ECHOCAT_KATA_JAVA_PART_1_DATA_MAGAZINES_CSV =
         "classpath:org/echocat/kata/java/part1/data/magazines.csv";
 
-    String getAuthorFilename() {
+    public String getAuthorFilename() {
         return CLASSPATH_ORG_ECHOCAT_KATA_JAVA_PART_1_DATA_AUTHORS_CSV;
     }
 
-    String getBookFilename() {
+    public String getBookFilename() {
         return CLASSPATH_ORG_ECHOCAT_KATA_JAVA_PART_1_DATA_BOOKS_CSV;
     }
 
-    String getMagazineFilename() {
+    public String getMagazineFilename() {
         return CLASSPATH_ORG_ECHOCAT_KATA_JAVA_PART_1_DATA_MAGAZINES_CSV;
     }
 }
