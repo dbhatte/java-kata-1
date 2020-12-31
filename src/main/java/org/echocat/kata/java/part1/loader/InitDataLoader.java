@@ -12,7 +12,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Component
 public class InitDataLoader implements CommandLineRunner {
@@ -38,13 +37,15 @@ public class InitDataLoader implements CommandLineRunner {
     @Autowired
     private MagazineMapper magazineMapper;
 
+
+
     @Override
     public void run(String... args) throws Exception {
         csvReader.getParser(fileConfiguration.getAuthorFilename()).forEach(
             record -> authorRepository.save(authorMapper.csvToRecord(record))
         );
 
-        Map<String, Author> authorMap = authorRepository.findAll().stream().collect(Collectors.toMap(Author::getEmail, author -> author));
+        Map<String, Author> authorMap = authorRepository.getEmailAuthorMap();
 
         csvReader.getParser(fileConfiguration.getBookFilename()).forEach(
             record -> publicationRepository.save(bookMapper.csvToRecord(record, authorMap))
