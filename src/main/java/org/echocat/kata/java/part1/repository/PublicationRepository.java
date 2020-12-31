@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PublicationRepository {
@@ -18,5 +19,9 @@ public class PublicationRepository {
 
     public List<Publication> findAll(){
         return Collections.unmodifiableList(publications);
+    }
+
+    public Optional<Publication> findByISBN(String isbn) {
+        return publications.stream().filter(publication -> isbn.equalsIgnoreCase(publication.getIsbn())).findFirst();
     }
 }
