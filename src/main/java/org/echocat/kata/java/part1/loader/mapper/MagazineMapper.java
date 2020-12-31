@@ -1,15 +1,16 @@
-package org.echocat.kata.java.part1.loader;
+package org.echocat.kata.java.part1.loader.mapper;
 
 import org.apache.commons.csv.CSVRecord;
 import org.echocat.kata.java.part1.model.Author;
 import org.echocat.kata.java.part1.model.Magazine;
-import org.echocat.kata.java.part1.model.Publication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
+@Component
 public class MagazineMapper {
 
     private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
@@ -17,7 +18,7 @@ public class MagazineMapper {
     @Autowired
     private AuthorMapper authorMapper;
 
-    public Publication csvToRecord(CSVRecord record, Map<String, Author> authorMap) {
+    public Magazine csvToRecord(CSVRecord record, Map<String, Author> authorMap) {
 
         return new Magazine(
             record.get(0),

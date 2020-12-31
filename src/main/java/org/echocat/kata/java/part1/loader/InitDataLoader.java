@@ -1,14 +1,19 @@
 package org.echocat.kata.java.part1.loader;
 
+import org.echocat.kata.java.part1.loader.mapper.AuthorMapper;
+import org.echocat.kata.java.part1.loader.mapper.BookMapper;
+import org.echocat.kata.java.part1.loader.mapper.MagazineMapper;
 import org.echocat.kata.java.part1.model.Author;
 import org.echocat.kata.java.part1.repository.AuthorRepository;
 import org.echocat.kata.java.part1.repository.PublicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Component
 public class InitDataLoader implements CommandLineRunner {
 
     @Autowired
