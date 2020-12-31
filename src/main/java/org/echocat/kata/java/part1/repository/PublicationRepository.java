@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class PublicationRepository {
@@ -23,5 +24,14 @@ public class PublicationRepository {
 
     public Optional<Publication> findByISBN(String isbn) {
         return publications.stream().filter(publication -> isbn.equalsIgnoreCase(publication.getIsbn())).findFirst();
+    }
+
+    public List<Publication> findByAuthorsEmail(String email) {
+        return publications.stream().filter(publication -> matches(publication, email)).collect(Collectors.toList());
+
+    }
+
+    private boolean matches(Publication publication, String email) {
+        return publication.getAuthors().stream().anyMatch(author -> email.equalsIgnoreCase(author.getEmail()));
     }
 }
