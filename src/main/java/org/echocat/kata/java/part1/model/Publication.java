@@ -18,6 +18,10 @@ public class Publication {
 
     public Publication(){}
 
+    public boolean matchesAuthorEmail(String email) {
+        return getAuthors().stream().anyMatch(author -> author.matchesEmail(email));
+    }
+
     public String getTitle() {
         return title;
     }

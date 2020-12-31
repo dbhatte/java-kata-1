@@ -24,4 +24,8 @@ public class Author {
     public String getLastname() {
         return lastname;
     }
+
+    public boolean matchesEmail(String email) {
+        return email.equalsIgnoreCase(this.email);
+    }
 }

@@ -27,11 +27,6 @@ public class PublicationRepository {
     }
 
     public List<Publication> findByAuthorsEmail(String email) {
-        return publications.stream().filter(publication -> matches(publication, email)).collect(Collectors.toList());
-
-    }
-
-    private boolean matches(Publication publication, String email) {
-        return publication.getAuthors().stream().anyMatch(author -> email.equalsIgnoreCase(author.getEmail()));
+        return publications.stream().filter(publication -> publication.matchesAuthorEmail(email)).collect(Collectors.toList());
     }
 }
