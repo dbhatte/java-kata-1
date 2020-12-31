@@ -31,4 +31,9 @@ public class PublicationController {
         return new ResponseEntity<>(publicationRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/sorted")
+    public ResponseEntity<List<Publication>> getSorted(){
+        return new ResponseEntity<>(publicationRepository.findSortedByTitle(), HttpStatus.OK);
+    }
+
 }

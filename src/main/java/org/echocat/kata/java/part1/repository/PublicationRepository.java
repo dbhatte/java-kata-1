@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,5 +29,9 @@ public class PublicationRepository {
 
     public List<Publication> findByAuthorsEmail(String email) {
         return publications.stream().filter(publication -> publication.matchesAuthorEmail(email)).collect(Collectors.toList());
+    }
+
+    public List<Publication> findSortedByTitle() {
+        return publications.stream().sorted(Comparator.comparing(Publication::getTitle)).collect(Collectors.toList());
     }
 }
