@@ -25,7 +25,7 @@ public class PublicationController {
     public ResponseEntity<List<Publication>> get(@RequestParam(required = false) String isbn){
         if (isbn != null) {
             return new ResponseEntity<>(Collections.singletonList(publicationRepository.findByISBN(isbn).orElseThrow(
-                () -> new PublicationNotFoundException(String.format("Publication not found %s", isbn)))), HttpStatus.OK);
+                () -> new PublicationNotFoundException(String.format("Publication not found for ISBN: %s", isbn)))), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(publicationRepository.findAll(), HttpStatus.OK);
